@@ -1,0 +1,37 @@
+.search-results {
+    margin-top: 50px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.table tbody tr:hover td,
+.table tbody tr:hover th {
+    background-color: transparent;
+}
+
+.table-striped tbody tr:nth-child(even):hover td {
+    background-color: white;
+}
+
+.footer {
+    background: #337ab7;
+}
+
+.grails-logo-container {
+    background: #337ab7;
+}
+
+.navbar-default, .navbar-static-top {
+    background-color: #337ab7;
+    border: 0px;
+}
+
+
+.nav li.dropdown.open ul.dropdown-menu {
+    background-color: #88B5DD;
+}
+
+.navbar-nav>li>a:hover {
+    background-color: #88B5DD !important;
+    color: white !important;
+}
