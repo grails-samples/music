@@ -1,5 +1,8 @@
 package music
 
+import groovy.transform.CompileStatic
+
+@CompileStatic
 class SearchController {
 
     ItunesSearchService itunesSearchService

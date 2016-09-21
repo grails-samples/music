@@ -2,8 +2,12 @@ package music
 
 import grails.plugin.cache.Cacheable
 import grails.plugins.rest.client.RestBuilder
+import groovy.transform.CompileDynamic
+import groovy.transform.CompileStatic
+import org.grails.web.json.JSONObject
 import org.springframework.beans.factory.annotation.Value
 
+@CompileStatic
 class ItunesSearchService {
 
     @Value('${music.search.url}')
@@ -15,9 +19,10 @@ class ItunesSearchService {
         def rb = new RestBuilder()
 
         log.debug "Search URL: ${searchUrl}"
-        def resp = rb.get(searchUrl, [searchTerm: searchTerm])
+        Map<String, Object> queryParameters = [searchTerm: searchTerm] as Map<String, Object>
+        def resp = rb.get(searchUrl, queryParameters)
 
-        def json = resp.json
+        JSONObject json = (JSONObject)resp.json
         def jsonResults = json.results
 
         jsonResults.collect { albumInfo ->
@@ -25,6 +30,7 @@ class ItunesSearchService {
         }
     }
 
+    @CompileDynamic
     protected Album createAlbum(json) {
         new Album(name: json.collectionName,
                   artistName: json.artistName,
