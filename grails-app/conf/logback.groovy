@@ -24,6 +24,4 @@ else {
     root(ERROR, ['STDOUT'])    
 }
 
-
-
-
+logger 'grails.app.services.music.ItunesSearchService', DEBUG, ['STDOUT'], false

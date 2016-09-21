@@ -11,7 +11,10 @@ class ItunesSearchService {
 
     @Cacheable('itunesSearchResults')
     List<Album> search(String searchTerm) {
+        log.debug "Searching iTunes Store For [${searchTerm}]"
         def rb = new RestBuilder()
+
+        log.debug "Search URL: ${searchUrl}"
         def resp = rb.get(searchUrl, [searchTerm: searchTerm])
 
         def json = resp.json
