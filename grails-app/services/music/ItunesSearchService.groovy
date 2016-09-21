@@ -19,10 +19,10 @@ class ItunesSearchService {
         def rb = new RestBuilder()
 
         log.debug "Search URL: ${searchUrl}"
-        Map<String, Object> queryParameters = [searchTerm: searchTerm] as Map<String, Object>
+        def queryParameters = [searchTerm: searchTerm] as Map<String, Object>
         def resp = rb.get(searchUrl, queryParameters)
 
-        JSONObject json = (JSONObject)resp.json
+        def json = (JSONObject)resp.json
         def jsonResults = json.results
 
         jsonResults.collect { albumInfo ->
