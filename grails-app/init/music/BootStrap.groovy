@@ -1,3 +1,5 @@
+package music
+
 class BootStrap {
 
     def init = { servletContext ->
