@@ -1,10 +1,9 @@
 package music
 
-import grails.test.mixin.TestFor
+import grails.testing.web.controllers.ControllerUnitTest
 import spock.lang.Specification
 
-@TestFor(SearchController)
-class SearchControllerSpec extends Specification {
+class SearchControllerSpec extends Specification implements ControllerUnitTest<SearchController> {
 
     void 'test with no searchTerm request parameter'() {
         setup:
