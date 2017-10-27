@@ -7,17 +7,19 @@ buildscript {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
         classpath "org.grails.plugins:hibernate5:${gormVersion-".RELEASE"}"
         classpath "com.bertramlabs.plugins:asset-pipeline-gradle:2.14.2"
+        classpath "se.transmode.gradle:gradle-docker:1.2"
     }
 }
 
 version "0.1"
-group "music"
+group "jeffscottbrown"
 
 apply plugin:"eclipse"
 apply plugin:"idea"
 apply plugin:"org.grails.grails-web"
 apply plugin:"asset-pipeline"
 apply plugin:"org.grails.grails-gsp"
+apply plugin: 'docker'
 
 repositories {
     mavenLocal()
@@ -69,3 +71,18 @@ assets {
     minifyJs = true
     minifyCss = true
 }
+
+
+task buildDocker(type: Docker) {
+    baseImage = 'williamyeh/java8'
+    push = false
+    push = project.hasProperty('pushDocker')
+    addFile {
+        from jar
+        rename {'music-search.jar'}
+    }
+    entryPoint(['java', '-Djava.security.egd=file:/dev/./urandom', '-jar', '/music-search.jar'])
+    exposePort(8080)
+}
+
+buildDocker.dependsOn assemble
