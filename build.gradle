@@ -12,7 +12,7 @@ buildscript {
 }
 
 version "0.1"
-group "jeffscottbrown"
+group "grailssamples"
 
 apply plugin:"eclipse"
 apply plugin:"idea"
