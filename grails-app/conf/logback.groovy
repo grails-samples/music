@@ -36,3 +36,4 @@ if (Environment.isDevelopmentMode() && targetDir != null) {
 root(ERROR, ['STDOUT'])
 
 logger 'music.ItunesSearchService', DEBUG, ['STDOUT'], false
+logger 'io.micronaut.http.client', TRACE, ['STDOUT'], false

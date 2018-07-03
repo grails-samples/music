@@ -24,6 +24,7 @@ apply plugin: 'docker'
 repositories {
     mavenLocal()
     maven { url "https://repo.grails.org/grails/core" }
+    maven { url "http://oss.sonatype.org/content/repositories/snapshots/" }
 }
 
 dependencies {
@@ -59,6 +60,10 @@ dependencies {
     testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
 
     compile "org.grails:grails-datastore-rest-client:$gormVersion"
+
+    compile 'io.micronaut:http-client:1.0.0.BUILD-SNAPSHOT'
+    compile 'io.micronaut:inject-java:1.0.0.BUILD-SNAPSHOT'
+    runtime 'org.grails.plugins:micronaut-beans:1.0.0.BUILD-SNAPSHOT'
 }
 
 bootRun {
