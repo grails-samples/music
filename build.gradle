@@ -80,7 +80,6 @@ assets {
 
 task buildDocker(type: Docker) {
     baseImage = 'williamyeh/java8'
-    push = false
     push = project.hasProperty('pushDocker')
     addFile {
         from jar
