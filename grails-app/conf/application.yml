@@ -1,15 +1,8 @@
 ---
-music:
-    search:
-        url: https://itunes.apple.com/search?limit=25&media=music&entity=album&term={searchTerm}
----
 grails:
     profile: web
     codegen:
         defaultPackage: music
-    spring:
-        transactionManagement:
-            proxies: false
     gorm:
         reactor:
             # Whether to translate GORM events into Reactor events
@@ -21,17 +14,25 @@ info:
         version: '@info.app.version@'
         grailsVersion: '@info.app.grailsVersion@'
 spring:
+    jmx:
+        unique-names: true
     main:
         banner-mode: "off"
     groovy:
         template:
             check-template-location: false
-
-# Spring Actuator Endpoints are Disabled by Default
-endpoints:
-    enabled: false
-    jmx:
-        enabled: true
+    devtools:
+        restart:
+            additional-exclude: 
+                - '*.gsp'     
+                - '**/*.gsp'       
+                - '*.gson'
+                - '**/*.gson'
+                - 'logback.groovy'
+                - '*.properties'
+management:
+    endpoints:
+        enabled-by-default: false
 
 ---
 grails:
@@ -82,12 +83,13 @@ grails:
             htmlcodec: xml
             codecs:
                 expression: html
-                scriptlets: html
+                scriptlet: html
                 taglib: none
                 staticparts: none
-endpoints:
-    jmx:
-        unique-names: true
+management:
+    endpoints:
+        jmx:
+            unique-names: true
 
 ---
 hibernate:
@@ -133,3 +135,9 @@ environments:
                 testOnReturn: false
                 jdbcInterceptors: ConnectionState
                 defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
+---
+micronaut:
+    codec:
+        json:
+            additionalTypes:
+                - text/javascript

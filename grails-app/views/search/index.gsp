@@ -23,7 +23,7 @@
             <g:each in="${searchResults}" var="album">
                 <tr>
                     <td>${album.artistName}</td>
-                    <td><g:link target="_blank" url="${album.url}">${album.name}</g:link> </td>
+                    <td><g:link target="_blank" url="${album.collectionViewUrl}">${album.collectionName}</g:link> </td>
                 </tr>
             </g:each>
         </table>

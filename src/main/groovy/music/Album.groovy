@@ -1,7 +1,7 @@
 package music
 
 class Album {
-    String name
+    String collectionName
     String artistName
-    String url
+    String collectionViewUrl
 }
