@@ -61,9 +61,9 @@ dependencies {
 
     compile "org.grails:grails-datastore-rest-client:$gormVersion"
 
-    compile 'io.micronaut:http-client:1.0.0.BUILD-SNAPSHOT'
-    compile 'io.micronaut:inject-java:1.0.0.BUILD-SNAPSHOT'
-    runtime 'org.grails.plugins:micronaut-beans:1.0.0.BUILD-SNAPSHOT'
+    compile 'io.micronaut:http-client:1.0.0.M3'
+    compile 'io.micronaut:inject-java:1.0.0.M3'
+    runtime 'org.grails.plugins:micronaut-beans:1.0.0.M1'
 }
 
 bootRun {
