@@ -1,11 +1,13 @@
 package music
 
-class Album {
-    String collectionName
-    String artistName
-    String url
+import com.fasterxml.jackson.annotation.JsonProperty
 
-    String getName() {
-        collectionName
-    }
+class Album {
+    String artistName
+
+    @JsonProperty('collectionName')
+    String name
+
+    @JsonProperty('collectionViewUrl')
+    String url
 }
