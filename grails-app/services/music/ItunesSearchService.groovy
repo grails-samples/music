@@ -10,7 +10,7 @@ class ItunesSearchService {
     @Autowired
     ItunesClient itunesClient
 
-//    @Cacheable('itunesSearchResults')
+    @Cacheable('itunesSearchResults')
     List<Album> search(String searchTerm) {
         log.debug "Searching iTunes Store For [${searchTerm}]"
 
