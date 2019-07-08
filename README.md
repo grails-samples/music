@@ -1,6 +1,6 @@
-# Grails 3 Music Search Sample App
+# Grails 4 Music Search Sample App
 
-This is a simple Grails 3 application which provides a browser interface for searching the iTunes music store.
+This is a simple Grails 4 application which provides a browser interface for searching the iTunes music store.
 
 The application may be run locally using the [Gradle](http://gradle.org/) `bootRun` task:
 
